@@ -130,7 +130,7 @@ You can also install this as a Claude Code plugin. Copy the `claude-plugin/` dir
 
 ```bash
 # Clone and link
-git clone https://github.com/pactra-dev/pactra-mcp.git
+git clone https://github.com/fbaghaeinaeini-dev/pactra-mcp.git
 cd pactra-mcp/claude-plugin
 ```
 
