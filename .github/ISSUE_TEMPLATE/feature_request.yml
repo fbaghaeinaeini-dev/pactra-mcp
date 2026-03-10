@@ -1,0 +1,42 @@
+name: Feature Request
+description: Suggest a new tool, enhancement, or integration
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We'd love to hear your ideas! Describe what you'd like to see.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve? What workflow is blocked?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work?
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - New MCP tool
+        - Enhancement to existing tool
+        - New MCP resource
+        - New MCP prompt
+        - Claude Code plugin
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds or alternative approaches?

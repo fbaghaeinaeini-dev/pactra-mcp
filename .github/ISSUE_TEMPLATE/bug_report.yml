@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a bug with the Pactra MCP server
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill out the details below.
+  - type: input
+    id: mcp-client
+    attributes:
+      label: MCP Client
+      description: What MCP client are you using?
+      placeholder: "Claude Code, Claude Desktop, Cursor, etc."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package Version
+      description: "Run: npm list @pactra.dev/mcp"
+      placeholder: "0.2.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: Paste any error output
+      render: shell
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: What prompt or action triggered this?
+      value: |
+        1.
+        2.
+        3.
