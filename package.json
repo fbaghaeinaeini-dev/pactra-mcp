@@ -1,0 +1,29 @@
+{
+  "name": "@pactra.dev/mcp",
+  "version": "0.2.1",
+  "description": "MCP server for Pactra — AI agent access to agreement operations",
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "bin": {
+    "pactra-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3"
+  },
+  "keywords": [
+    "pactra",
+    "mcp",
+    "ai-agent",
+    "agreements",
+    "model-context-protocol"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "pactra",
+  "version": "0.2.0",
+  "description": "Agreement creation, signing, and management for AI agents",
+  "author": "Pactra <hello@pactra.dev>",
+  "homepage": "https://github.com/pactra-dev/pactra-mcp",
+  "license": "MIT"
+}

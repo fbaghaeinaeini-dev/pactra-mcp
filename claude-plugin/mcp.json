@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "pactra": {
+      "command": "npx",
+      "args": ["-y", "@pactra.dev/mcp"],
+      "env": {
+        "PACTRA_API_KEY": ""
+      }
+    }
+  }
+}
