@@ -7,7 +7,7 @@
 <p align="center">
   <strong>Let AI agents create, send, and sign agreements.</strong>
   <br />
-  The first MCP server for legally-binding e-signatures.
+  An open-source MCP server for e-signatures, built for developers.
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
   <a href="#-available-tools">Tools</a> &bull;
   <a href="#-why-pactra">Why Pactra</a> &bull;
   <a href="#-examples">Examples</a> &bull;
-  <a href="#-vs-alternatives">Comparison</a> &bull;
+  <a href="#%EF%B8%8F-vs-building-from-scratch">Build vs Buy</a> &bull;
   <a href="https://pactra.dev/docs">Docs</a>
 </p>
 
@@ -113,20 +113,18 @@ Claude handles everything automatically.
 
 ## 💡 Why Pactra
 
-### AI-Native from Day One
+### Built for AI Agents
 
-Most e-signature tools bolt on APIs as an afterthought. Pactra was built for AI agents from the ground up.
+Pactra was designed for developers building AI-powered workflows. Instead of adapting a legacy e-signature API, we built the agreement layer that AI agents need.
 
-| Feature | Pactra | DocuSign | HelloSign | PandaDoc |
-|:--------|:------:|:--------:|:---------:|:--------:|
-| MCP Server | ✅ | ❌ | ❌ | ❌ |
-| AI Agent Signing | ✅ | ❌ | ❌ | ❌ |
-| AI Field Detection | ✅ | ❌ | ❌ | ❌ |
-| Cryptographic Receipts | ✅ | ✅ | ❌ | ❌ |
-| Hash Chain Audit Trail | ✅ | ❌ | ❌ | ❌ |
-| Open Source MCP Tools | ✅ | ❌ | ❌ | ❌ |
-| Free Tier | ✅ | ❌ | ❌ | ❌ |
-| Lines of Code to Send | **3** | ~200 | ~80 | ~60 |
+**What Pactra focuses on:**
+
+- **Agent-as-signer** — AI agents can sign as authorized parties with structured audit context (agent name, reason, model). The signing context is permanently recorded in the cryptographic receipt.
+- **Open source MCP tools** — MIT licensed, fully transparent. Inspect, fork, or extend any tool.
+- **Developer-first API** — Simple REST endpoints, TypeScript SDK, and this MCP server. No OAuth dance, no XML envelopes.
+- **Hash chain receipts** — Each signature receipt includes a SHA-256 hash of the document and a chain hash linking to prior signatures, creating a tamper-evident sequence.
+- **AI field detection** — Upload a PDF, and AI analyzes the document to suggest where signature fields should go.
+- **Free tier** — Build and test with no credit card. Upgrade to Pro ($10/month) when you're ready.
 
 ### How It Works
 
@@ -212,36 +210,18 @@ See more examples in [`examples/`](./examples/).
 
 ---
 
-## ⚖️ Vs Alternatives
+## ⚖️ Vs Building from Scratch
 
-### vs DocuSign API
+If you're building agreement signing into your AI agent workflow, here's what you'd need to implement yourself:
 
-```javascript
-// DocuSign: ~200 lines, OAuth setup, envelope XML, recipient views...
-const apiClient = new docusign.ApiClient();
-apiClient.setBasePath('https://demo.docusign.net/restapi');
-apiClient.addDefaultHeader('Authorization', 'Bearer ' + accessToken);
-const envelopesApi = new docusign.EnvelopesApi(apiClient);
-const envelope = new docusign.EnvelopeDefinition();
-envelope.emailSubject = 'Please sign';
-// ... 190 more lines of setup
-```
-
-```
-// Pactra MCP: just talk to Claude
-"Create an NDA for alice@example.com and send it for signing"
-```
-
-### vs Building from Scratch
-
-| What you'd build | Time | Pactra |
-|:-----------------|:-----|:-------|
-| PDF signature placement | 2-4 weeks | `add_fields` tool |
-| Cryptographic receipts | 1-2 weeks | `get_receipt` tool |
-| Email signing flow | 1-2 weeks | `send_agreement` tool |
-| AI field detection | 2-3 weeks | `detect_fields` tool |
-| Agent signing audit trail | 1-2 weeks | `sign_agreement` tool |
-| **Total** | **7-13 weeks** | **30 seconds** |
+| Capability | Build yourself | With Pactra |
+|:-----------|:---------------|:------------|
+| PDF signature field placement | Coordinate math, pdf-lib | `add_fields` tool |
+| Cryptographic receipt generation | SHA-256 hashing, chain logic | `get_receipt` tool |
+| Email-based signing flow | Email service, token auth, UI | `send_agreement` tool |
+| AI field detection in PDFs | PDF parsing + LLM integration | `detect_fields` tool |
+| Agent signing with audit trail | Custom auth, context storage | `sign_agreement` tool |
+| Signed PDF generation | pdf-lib embedding, R2 storage | `get_signed_document` tool |
 
 ---
 
